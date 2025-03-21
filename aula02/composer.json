@@ -1,0 +1,24 @@
+{
+    "name": "dbe2/aula02",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Dbe2\\Aula02\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gill from d3567(Win10)",
+            "email": "gillgonzales@ifsul.edu.br"
+        }
+    ],
+    "scripts":{
+        "start":"php -S localhost:8080 -t src"
+    },
+    "require": {
+        "brandonwamboldt/utilphp": "^1.1"
+    },
+    "config": {
+        "process-timeout":0
+    }
+}
