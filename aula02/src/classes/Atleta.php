@@ -33,9 +33,10 @@ class Atleta extends Pessoa implements IMC{
 			foreach($error->getTrace() as $trace)
 				 print_r($trace);
 			throw $error;
-		}finally{
-			echo "Sempre passou aqui!!!";
 		}
+		// finally{
+		// 	echo "Sempre passou aqui!!!";
+		// }
 	}
 
 	public function showImc():void
