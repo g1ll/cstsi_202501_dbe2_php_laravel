@@ -13,7 +13,7 @@
         }
     ],
     "scripts":{
-        "start":"php -S localhost:8080 -t src"
+        "start":"php -S localhost:8081 -t src"
     },
     "require": {
         "brandonwamboldt/utilphp": "^1.1"

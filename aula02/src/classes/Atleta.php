@@ -1,11 +1,11 @@
 <?php
 namespace Dbe2\Aula02\classes;
 
-use Dbe2\Aula02\classes\Abstracts\Pessoa as AbstractPerson;
+use Dbe2\Aula02\classes\Abstracts\Pessoa;
 use Dbe2\Aula02\interfaces\IMC;
 use Exception;
 
-class Atleta extends AbstractPerson implements IMC{
+class Atleta extends Pessoa implements IMC{
 
 	// public $altura, $peso;
 	private $imc;
@@ -78,6 +78,6 @@ class Atleta extends AbstractPerson implements IMC{
 		$saida .= (isset($this->imc))
 				?"\nIMC: ".number_format($this->imc, 3)
 				:"";
-		return $saida."\n==============\n";
+		return $saida;
 	}
 }

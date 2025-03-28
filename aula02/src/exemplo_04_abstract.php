@@ -17,7 +17,7 @@ echo "\nMédico ".(($med1 instanceof Pessoa)?"eh":"não eh")."  Pessoa";
 
 $relatorio = new Relatorio;
 
-$relatorio->add($atl1);//Relatório recebe qualquer objeto que herde PessoaAbstrata
+$relatorio->add($atl1);//Relatório recebe qualquer objeto de uma classe filha de PessoaAbstrata
 $relatorio->add($med1);
 
 $relatorio->imprime();

@@ -23,7 +23,8 @@ class JogadorAtacante extends Jogador
 
 	public function __toString(): string
 	{
-		$saida = parent::__toString();
+		$saida = "Classe Parent: ".parent::class."\n";
+		$saida .= parent::__toString();
 		$saida .= "\n===Atribuições do ".self::class;
 		if($this->estaComBola){
 			$saida.="\n\nDribles:";

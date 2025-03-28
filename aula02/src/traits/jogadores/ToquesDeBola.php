@@ -11,13 +11,15 @@ trait ToquesDeBola{
         return "Realiza passe um dois curto.";
     }
 
-    function lancamento():string{
+    function lancamento():string {
         if($this->estaComBola)
             return "Faz lançamento.";
+        else return "Erro, jogador sem bola.";
     }
 
     function cruzamento():string{
         if($this->estaComBola)
             return "Faz um cruzamento.";
+        else return "Erro, jogador sem bola.";
     }
 }
