@@ -8,6 +8,7 @@ Route::get('/', function () {
 
 
 Route::get('/ola', function(){
-    echo "Olá Mundo!!!";
+    // echo "Olá Mundo!!!";
+    return view('ola');
 });
 
