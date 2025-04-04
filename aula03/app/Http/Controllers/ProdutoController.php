@@ -12,4 +12,9 @@ class ProdutoController extends Controller
         // dd($listProdutos);
         return view('produtos.index',compact('listProdutos'));
     }
+
+    public function show($id){
+        // dd($id);
+        dd(Produto::find($id));
+    }
 }
