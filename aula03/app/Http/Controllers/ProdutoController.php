@@ -9,6 +9,7 @@ class ProdutoController extends Controller
 {
     public function index(){
         $listProdutos = Produto::all();
-        dd($listProdutos);
+        // dd($listProdutos);
+        return view('produtos.index',compact('listProdutos'));
     }
 }
