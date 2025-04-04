@@ -17,5 +17,8 @@ Route::get('/ola', function(){
 
 
 Route::get('/hola',[HomeController::class,'index']);
+
 Route::get('/users',[UserController::class,'index']);
+
 Route::get('/produtos',[ProdutoController::class,'index']);
+Route::get('/produtos/{id}',[ProdutoController::class,'show']);
