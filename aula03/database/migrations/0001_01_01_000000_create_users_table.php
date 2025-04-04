@@ -8,6 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * php artisan migrate:fresh
+     * sail artisan migrate:fresh (docker)
      */
     public function up(): void
     {
