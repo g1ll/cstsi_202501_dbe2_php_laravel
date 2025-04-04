@@ -9,7 +9,11 @@
     <h1>Produtos:</h1>
     <ul>
     @foreach ($listProdutos as $produto)
-        <li>{{$produto->nome}}</li>
+        <li>
+            <a href="/produtos/{{$produto->id}}" >
+                {{$produto->nome}}
+            </a>
+            </li>
     @endforeach
     </ul>
 </body>
