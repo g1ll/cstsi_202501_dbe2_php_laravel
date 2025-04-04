@@ -9,6 +9,7 @@ class HomeController extends Controller
     //
     public function index(){
         $text = "Hola Laravel";//poderia vir do banco
-        dd($text);
+        // dd($text);
+        return view('hola',['content'=>$text]); 
     }
 }
