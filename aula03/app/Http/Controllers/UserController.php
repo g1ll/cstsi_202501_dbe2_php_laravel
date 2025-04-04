@@ -9,6 +9,7 @@ class UserController extends Controller
 {
     public function index(){
         $usersList = User::all();
-        dd($usersList);
+        // dd($usersList);
+        return view('users.index',['listUsers'=>$usersList]);
     }
 }
