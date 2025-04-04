@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('nome');
             $table->text('descricao');
-            $table->integer('qdt_estoque');
+            $table->integer('qtd_estoque');
             $table->float('preco');
             $table->boolean('importado')->default(false);
             $table->timestamps();
