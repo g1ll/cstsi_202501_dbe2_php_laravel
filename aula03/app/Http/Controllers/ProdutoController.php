@@ -17,6 +17,9 @@ class ProdutoController extends Controller
 
     public function show($id){
         // dd($id);
-        dd(Produto::find($id));
+        // dd(Produto::find($id));
+        return view('produtos.show',[
+            'produto'=>Produto::find($id)
+        ]);
     }
 }
