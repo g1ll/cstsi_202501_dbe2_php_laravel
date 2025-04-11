@@ -22,6 +22,7 @@
                         <th>qtd_estoque</th>
                         <th>preco</th>
                         <th>Importado</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,16 @@
                             <td>{{ $produto->qtd_estoque }}</td>
                             <td>{{ $produto->preco }}</td>
                             <td>{{ $produto->importado ? 'Sim' : 'Não' }}</td>
+                            <td>
+                                <a href="{{ route('produto.edit',$produto->id) }}">
+                                   ATUALIZAR
+                                </a>
+                                | 
+                                <a href="{{ route('produto.delete',$produto->id) }}">
+                                    DELETAR
+                                 </a>
+                            </td>
+                       
                         </tr>
                     @endforeach
                 </tbody>
