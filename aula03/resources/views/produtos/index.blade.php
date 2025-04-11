@@ -9,6 +9,9 @@
 
 <body>
     <h1>Produtos:</h1>
+    <a href="/produto">
+        <button>Novo Produto</button>
+    </a>
     <table>
         @if ($produtosList->count() > 0)
             <table>
