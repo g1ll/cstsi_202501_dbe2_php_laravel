@@ -24,3 +24,7 @@ Route::get('/users/{id}',[UserController::class,'show']);
 
 Route::get('/produtos',[ProdutoController::class,'index']);
 Route::get('/produtos/{id}',[ProdutoController::class,'show']);
+
+Route::get('/produto',[ProdutoController::class,'create']);
+Route::post('/produto',[ProdutoController::class,'store']);
+
