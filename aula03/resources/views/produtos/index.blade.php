@@ -10,7 +10,7 @@
 <body>
     <h1>Produtos:</h1>
     <table>
-        @if ($listProdutos->count() > 0)
+        @if ($produtosList->count() > 0)
             <table>
                 <thead>
                     <tr>
@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($listProdutos as $produto)
+                    @foreach ($produtosList as $produto)
                         <tr>
                             <td>
                                 <a href="/produtos/{{ $produto->id }}">
