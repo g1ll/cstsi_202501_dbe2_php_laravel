@@ -20,7 +20,7 @@
                     @foreach ($listUsers as $user)
                         <tr>
                             <td>
-                                {{ $user->id }}
+                               <a href="/users/{{$user->id}}"> {{ $user->id }}</a>
                             </td>
                             <td>{{ $user->name }}</td>
                         </tr>

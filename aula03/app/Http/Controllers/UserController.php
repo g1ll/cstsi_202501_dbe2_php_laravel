@@ -12,4 +12,15 @@ class UserController extends Controller
         // dd($usersList);
         return view('users.index',['listUsers'=>$usersList]);
     }
+
+    public function show($id){
+        $user =  User::find($id);
+        // dd([
+        //     $user->name,
+        //     $user->email
+        // ]);
+
+        // return view('users.show',['user'=>$user]);
+        return view('users.show',compact('user'));
+    }
 }
