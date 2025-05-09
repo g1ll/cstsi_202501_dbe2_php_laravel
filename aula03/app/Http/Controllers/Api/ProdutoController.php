@@ -42,9 +42,9 @@ class ProdutoController extends Controller
                 'message' => 'Produto criado com sucesso!',
                 'data' => $produto
             ], 201);
+        } catch (ValidationException $e) {
+            throw $e;
         } catch (\Exception $e) {
-
-            $e instanceof ValidationException && throw $e;
 
             $httpStatus = 500;
 
