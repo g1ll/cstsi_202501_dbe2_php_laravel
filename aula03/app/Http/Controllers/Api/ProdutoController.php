@@ -31,7 +31,7 @@ class ProdutoController extends Controller
                 'preco' => 'required|numeric',
                 'descricao' => 'required|string',
                 'qtd_estoque' => 'required|integer',
-                'importado' => ['nullable', 'boolean']
+                'importado' => ['nullable']
             ]);
 
             $produto = $request->all();
