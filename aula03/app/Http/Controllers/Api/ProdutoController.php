@@ -26,16 +26,22 @@ class ProdutoController extends Controller
         $produto = $request->all();
         $produto['importado'] = $request->has('importado');
 
-        if(Produto::create($produto)){
+        try{
+            Produto::create($produto);
             return response()->json([
                 'message' => 'Produto criado com sucesso!',
                 'data'=> $produto
             ], 201);
-        }else{//nunca é executado pois não capturamos a exceção
-            return response()->json([
-                'message' => 'Produto não criado!',
-                'data'=> $produto
-            ], 500);
+        }catch (\Exception $e) {
+            $response = [
+                'message' => 'Erro ao criar produto',
+            ];
+
+            if (env("APP_DEBUG")) {
+                $response['error'] = $e->getMessage();
+            }
+
+            return response()->json($response, 500);
         }
     }
 
