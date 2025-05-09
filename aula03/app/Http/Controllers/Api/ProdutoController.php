@@ -44,7 +44,7 @@ class ProdutoController extends Controller
             ], 201);
         } catch (\Exception $e) {
 
-            if($e instanceof ValidationException) throw $e;
+            $e instanceof ValidationException && throw $e;
 
             $httpStatus = 500;
 
