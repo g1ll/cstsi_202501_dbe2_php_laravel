@@ -60,6 +60,13 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        try {
+            $produto->delete();
+            return new ProdutoResource($produto)->additional([
+                    'message' => 'Produto deletado com sucesso!'
+                ]);
+        } catch (\Exception $e) {
+            return $this->errorHandler('Erro ao atualizar produto',$e);
+        }
     }
 }
