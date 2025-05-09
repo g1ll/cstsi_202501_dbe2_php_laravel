@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\Controller;
 use App\Http\Requests\ProdutoStoreRequest;
+use App\Http\Requests\ProdutoUpdateRequest;
 use App\Http\Resources\ProdutoCollectionResource;
 use App\Http\Resources\ProdutoResource;
 use App\Http\Resources\ProdutoStoredResource;
@@ -44,9 +45,14 @@ class ProdutoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Produto $produto)
+    public function update(ProdutoUpdateRequest $request, Produto $produto)
     {
-        //
+        try {
+            $produto->update($request->validated());
+            return new ProdutoResource($produto);
+        } catch (\Exception $e) {
+            return $this->errorHandler('Erro ao atualizar produto',$e);
+        }
     }
 
     /**
