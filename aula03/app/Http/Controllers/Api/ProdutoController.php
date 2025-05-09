@@ -44,10 +44,9 @@ class ProdutoController extends Controller
             ], 201);
         } catch (\Exception $e) {
 
+            if($e instanceof ValidationException) throw $e;
+
             $httpStatus = 500;
-            if ($e instanceof ValidationException) {
-                $httpStatus = 422;
-            }
 
             $response = [
                 'message' => 'Erro ao criar produto',
