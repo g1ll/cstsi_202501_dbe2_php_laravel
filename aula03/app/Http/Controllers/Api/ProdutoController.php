@@ -7,6 +7,7 @@ use App\Http\Resources\ProdutoCollectionResource;
 use App\Http\Resources\ProdutoResource;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProdutoController extends Controller
 {
@@ -23,25 +24,42 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $produto = $request->all();
-        $produto['importado'] = $request->has('importado');
+        try {
 
-        try{
+            $request->validate([
+                'nome' => 'required|string|max:255',
+                'preco' => 'required|numeric',
+                'descricao' => 'required|string',
+                'qtd_estoque' => 'required|integer',
+                'importado' => ['nullable', 'boolean']
+            ]);
+
+            $produto = $request->all();
+            $produto['importado'] = $request->has('importado');
+
             Produto::create($produto);
             return response()->json([
                 'message' => 'Produto criado com sucesso!',
-                'data'=> $produto
+                'data' => $produto
             ], 201);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
+
+            $httpStatus = 500;
+            if ($e instanceof ValidationException) {
+                $httpStatus = 422;
+            }
+
             $response = [
                 'message' => 'Erro ao criar produto',
             ];
 
             if (env("APP_DEBUG")) {
+                $response['exception'] = $e;
                 $response['error'] = $e->getMessage();
+                $response['trace'] = $e->getTrace();
             }
 
-            return response()->json($response, 500);
+            return response()->json($response, $httpStatus);
         }
     }
 
