@@ -23,7 +23,26 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produto = $request->all();
+        $produto['importado'] = $request->has('importado');
+        // return $produto;
+        try{
+            Produto::create($produto);
+            return response()->json([
+                'message' => 'Produto criado com sucesso!',
+                'data'=> $produto
+            ], 201);
+        }catch (\Exception $e) {
+            $response = [
+                'message' => 'Erro ao criar produto',
+            ];
+
+            if (env("APP_DEBUG")) {
+                $response['error'] = $e->getMessage();
+            }
+
+            return response()->json($response, 500);
+        }
     }
 
     /**
