@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProdutoStoreRequest;
 use App\Http\Resources\ProdutoCollectionResource;
 use App\Http\Resources\ProdutoResource;
+use App\Http\Resources\ProdutoStoredResource;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -26,12 +27,7 @@ class ProdutoController extends Controller
     public function store(ProdutoStoreRequest $request)
     {
         try {
-            $produtoCriado = Produto::create($request->validated());
-            return (new ProdutoResource($produtoCriado))
-                ->additional([
-                    'message' => 'Produto criado com sucesso',
-                ])->response()
-                ->setStatusCode(201);
+            return new ProdutoStoredResource(Produto::create($request->validated()));
         } catch (\Exception $e) {
             $response = [
                 'message' => 'Erro ao criar produto',
