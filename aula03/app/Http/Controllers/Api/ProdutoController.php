@@ -46,19 +46,20 @@ class ProdutoController extends Controller
             throw $e;
         } catch (\Exception $e) {
 
-            $httpStatus = 500;
-
             $response = [
                 'message' => 'Erro ao criar produto',
             ];
 
             if (env("APP_DEBUG")) {
-                $response['exception'] = $e;
-                $response['error'] = $e->getMessage();
-                $response['trace'] = $e->getTrace();
+                $response = [
+                    ...$response,
+                    'exception' => $e,
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTrace(),
+                ];
             }
 
-            return response()->json($response, $httpStatus);
+            return response()->json($response, 500);
         }
     }
 
