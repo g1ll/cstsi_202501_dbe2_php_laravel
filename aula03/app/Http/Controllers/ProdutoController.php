@@ -40,6 +40,7 @@ class ProdutoController extends Controller
     }
 
     public function update(Request $request,$id){
+        dd($request->all());
         $newProduto = $request->all();
         $newProduto['importado'] = $request->has('importado');
 
