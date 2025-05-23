@@ -18,9 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
         // dd($middleware->getMiddlewareGroups());
         //antes dos middlewares padrões dos laravel
         // $middleware->api(prepend:ForceJsonResponse::class);
-        $middleware->api(prepend:ForceJsonResponse::class);
+        $middleware->api(append:ForceJsonResponse::class);
         // dd($middleware->getMiddlewareGroups());
-
+        $middleware->statefulApi();
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
