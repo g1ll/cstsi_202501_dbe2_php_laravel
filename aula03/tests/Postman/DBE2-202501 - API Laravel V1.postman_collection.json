@@ -1,0 +1,1045 @@
+{
+	"info": {
+		"_postman_id": "ebc6dfa9-37ce-4239-9f7d-7f0c6edeede0",
+		"name": "DBE2-202501 - API Laravel V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37639345"
+	},
+	"item": [
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:80803/api/v1/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "80803",
+							"path": [
+								"api",
+								"v1",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/produtos/138",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"produtos",
+								"138"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/produtos/129",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"produtos",
+								"129"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "STORE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Placa de Vídeo  RTX5060 TI",
+									"type": "text"
+								},
+								{
+									"key": "descricao",
+									"value": "Placa de Vídeo RTX NVIDIA  TI 8GB",
+									"type": "text"
+								},
+								{
+									"key": "qtd_estoque",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "preco",
+									"value": "6500.99",
+									"type": "text"
+								},
+								{
+									"key": "importado",
+									"value": "\"on\"",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/v1/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Teste",
+									"value": "asdfasdf",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/v1/produtos/138",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"produtos",
+								"138"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{XSRF-TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							},
+							{
+								"key": "Access-Control-Allow-Credentials",
+								"value": "true",
+								"type": "text"
+							},
+							{
+								"key": "referer",
+								"value": "http://localhost:8083/api/user",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "STORE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Velleda",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "velledagonzales@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Gonzales",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "importado",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/v1/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "SPAs",
+					"item": [
+						{
+							"name": "SANCTUM-CSRF",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/sanctum/csrf-cookie",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"sanctum",
+										"csrf-cookie"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{XSRF-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@dev.test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "adminadmin",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "velledagonzales@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8083/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "LOGIN",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "admin@dev.test",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "password",
+													"value": "adminadmin",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "email",
+													"value": "velledagonzales@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12345678",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8083/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8083",
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8083"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 23 May 2025 16:18:48 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "XSRF-TOKEN=eyJpdiI6IkhWSkovYStzb0xzQ21RT3kwanAzNXc9PSIsInZhbHVlIjoiWHRwSVFmL2czZitrdWduRUhZenVsZCtyMGFYd1N3Wk5qeXJCUzI4OEJPMVNVNFdFbURBWTROb0VhR3NSRU51bXRyd0trbEE5b3pwb1h1bHA0Q2tDZ3BnMVptYVpHZDkrQ1kvd1FLWlROVk9TVEorSjJZWDBvOEFGaXRwRU9URzAiLCJtYWMiOiI4MzIzYWI2Y2NhMDhjN2ZmYWU0NzVmYmMzZDJhZjdjZWIzNTY4Zjg1NTZjYmE0YTQ1ZDUwZTE5YWVmMjNmZjkyIiwidGFnIjoiIn0%3D; expires=Fri, 23 May 2025 18:18:48 GMT; Max-Age=7200; path=/; domain=localhost; samesite=lax"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "laravel_session=eyJpdiI6ImRmdEc4djVmYnJJemIvYjdsZXRjU1E9PSIsInZhbHVlIjoiQUVPZEZMSG1xOStWSFF5cVJqazZGanRQdkRzdzFrZEdVWUsxZVdscFhjZGRGSTVZTWNzclduR1VhZVBLMEdrQkl5REZNQ1FvQjhHVFBZdHRVNGJmRmpRR3I2c0QxeUU2a1J4aHRPUVZJdjUzeThkeWdtWUFySUV2cFJBanY2R2YiLCJtYWMiOiJkYzZlYTNmY2Y3NTBmNTdlMTc5MTBhMTNlOThlM2RmNTBlNmMyYTcxODc0NGVkMTEzOThiNzdiZmFkYTVkYTUwIiwidGFnIjoiIn0%3D; expires=Fri, 23 May 2025 18:18:48 GMT; Max-Age=7200; path=/; domain=localhost; httponly; samesite=lax"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 22,\n            \"name\": \"Velleda\",\n            \"email\": \"velledagonzales@gmail.com\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2025-05-23T14:05:17.000000Z\",\n            \"updated_at\": \"2025-05-23T14:05:17.000000Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "LOGOUT",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "gillvelleda@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8083/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TOKENS",
+					"item": [
+						{
+							"name": "LOGIN",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|kchbjmtVsZS3b6Nni0z1B7ocNWw8Ros4cz4KtPeBdd95d451",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/html",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@dev.test",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "adminadmin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "gillvelleda@mail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "velledagonzales@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8083/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGOUT",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|yYXL5w08v9Nahcwd2bjLDEtPH6tXYRVxKbO6hhH038784e75",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "gillvelleda@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8083/api/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "consultas",
+			"item": [
+				{
+					"name": "localhost:8083/api/produtos/query/regiao/Sul",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8083/api/produtos/query/regiao/Norte",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"produtos",
+								"query",
+								"regiao",
+								"Norte"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fornecedor",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							},
+							{
+								"key": "Access-Control-Allow-Credentials",
+								"value": "true",
+								"type": "text"
+							},
+							{
+								"key": "referer",
+								"value": "http://localhost:8083/fornecedores",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/fornecedores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"fornecedores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "INDEX",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/api/fornecedores/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"fornecedores",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8083"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.21"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 May 2025 21:22:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nome\": \"Furtado e Aragão Ltda.\",\n            \"endereco\": \"Ad officiis dolor. nr:8669\",\n            \"cnpj\": \"79.677.520/0001-93\",\n            \"telefone\": \"(82) 93223-2039\",\n            \"email\": \"casanova.alessandra@verdugo.net\",\n            \"estado_id\": 22,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"nome\": \"Escobar e Barreto Ltda.\",\n            \"endereco\": \"Eos aut dolore. nr:1705\",\n            \"cnpj\": \"85.300.889/0001-85\",\n            \"telefone\": \"(54) 91100-9332\",\n            \"email\": \"jpontes@barreto.br\",\n            \"estado_id\": 17,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"nome\": \"Reis e Faro\",\n            \"endereco\": \"Placeat maiores consequatur et fugit. nr:9853\",\n            \"cnpj\": \"18.433.310/0001-65\",\n            \"telefone\": \"(42) 93954-4937\",\n            \"email\": \"joaquin.franco@aranda.br\",\n            \"estado_id\": 3,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"nome\": \"Paz e Filhos\",\n            \"endereco\": \"Velit vel consequatur. nr:8309\",\n            \"cnpj\": \"83.864.093/0001-20\",\n            \"telefone\": \"(87) 95166-8819\",\n            \"email\": \"aragao.tamara@cordeiro.com.br\",\n            \"estado_id\": 19,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"nome\": \"Lutero e Montenegro Ltda.\",\n            \"endereco\": \"In similique voluptas voluptas. nr:1528\",\n            \"cnpj\": \"81.885.860/0001-51\",\n            \"telefone\": \"(79) 91431-8926\",\n            \"email\": \"xuchoa@faria.br\",\n            \"estado_id\": 14,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"nome\": \"Ferreira e Domingues\",\n            \"endereco\": \"Ut necessitatibus consequatur harum adipisci. nr:8943\",\n            \"cnpj\": \"47.636.531/0001-39\",\n            \"telefone\": \"(38) 92232-6719\",\n            \"email\": \"alozano@casanova.com.br\",\n            \"estado_id\": 9,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"nome\": \"Pedrosa-Neves\",\n            \"endereco\": \"Perspiciatis voluptatibus beatae totam. nr:2523\",\n            \"cnpj\": \"00.109.557/0001-65\",\n            \"telefone\": \"(44) 93669-9480\",\n            \"email\": \"aleon@matias.com\",\n            \"estado_id\": 8,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"nome\": \"Flores e Soares Ltda.\",\n            \"endereco\": \"Occaecati eos cupiditate. nr:4414\",\n            \"cnpj\": \"86.780.118/0001-03\",\n            \"telefone\": \"(48) 98496-3891\",\n            \"email\": \"dayana45@delvalle.com\",\n            \"estado_id\": 25,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"nome\": \"Gusmão Comercial Ltda.\",\n            \"endereco\": \"Cum neque. nr:7778\",\n            \"cnpj\": \"81.592.078/0001-44\",\n            \"telefone\": \"(38) 92779-9998\",\n            \"email\": \"mayara55@brito.net.br\",\n            \"estado_id\": 7,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"nome\": \"Casanova-Quintana\",\n            \"endereco\": \"Molestiae inventore et quibusdam iste. nr:2925\",\n            \"cnpj\": \"15.294.443/0001-00\",\n            \"telefone\": \"(82) 99726-3168\",\n            \"email\": \"luara97@montenegro.net.br\",\n            \"estado_id\": 24,\n            \"created_at\": \"2025-05-18T17:28:38.000000Z\",\n            \"updated_at\": \"2025-05-18T17:28:38.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "STORE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/fornecedores/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"fornecedores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/fornecedores/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"fornecedores",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "filters",
+			"item": [
+				{
+					"name": "produtos",
+					"item": [
+						{
+							"name": "PRODUTO_REGIAO",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/api/filters/produtos/regiao/norte",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"filters",
+										"produtos",
+										"regiao",
+										"norte"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PRODUTO_REGIAO Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/api/produtos/query/regiao/centro-oeste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"produtos",
+										"query",
+										"regiao",
+										"centro-oeste"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PRODUTO_IMPORTADO",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/api/filters/produtos/importados",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"filters",
+										"produtos",
+										"importados"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "fornecedor",
+					"item": [
+						{
+							"name": "regiao",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/api/queries/fornecedores/regiao/norte",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"queries",
+										"fornecedores",
+										"regiao",
+										"norte"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.request.headers.add({ key: 'accept', value: 'application/json' })"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
