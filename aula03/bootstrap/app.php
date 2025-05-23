@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ForceJsonResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,7 +13,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // $middleware->appendToGroup("force-json",[ForceJsonResponse::class]);
+        // dd($middleware);
+        // dd($middleware->getMiddlewareGroups());
+        //antes dos middlewares padrões dos laravel
+        // $middleware->api(prepend:ForceJsonResponse::class);
+        $middleware->api(prepend:ForceJsonResponse::class);
+        // dd($middleware->getMiddlewareGroups());
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
