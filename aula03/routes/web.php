@@ -76,3 +76,14 @@ Route::post("/login",function(Request $request){
         return new UserResource(User::where('email',$request->email)->get());
     else return response()->json(["erro"=>"Dados inválidos!!"],401);
 });
+
+Route::post("/logout",function(Request $request){
+    // return $request->user();
+    // return Auth::guard('web')->user();
+    // return auth()->user();
+
+    // return auth()->logout();
+
+    return Auth::guard('web')->logout();
+
+})->middleware("auth:sanctum");

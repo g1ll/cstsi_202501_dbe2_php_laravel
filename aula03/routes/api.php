@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\ProdutoController;
 use App\Http\Controllers\Api\UserController;
 use App\Models\User;
@@ -14,7 +15,16 @@ Route::get('/user', function (Request $request) {
 // Route::get('produtos/{produto}',[ProdutoController::class,'show']);
 
 Route::prefix('v1')->group(function () {
-    Route::apiResource('produtos', ProdutoController::class);
+
+    Route::apiResource('produtos', ProdutoController::class)
+        ->middleware("auth:sanctum");
+
+   Route::apiResource('produtos', ProdutoController::class)
+        ->only('update')
+        ->middleware(["auth:sanctum","ability:is-admin"]);
+
+    Route::apiResource('produtos', ProdutoController::class)
+        ->only('index','show');
 
     // Route::get('users',function(){
     //     return User::all();
@@ -25,6 +35,8 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::apiResource("users",UserController::class);
+
+    Route::post('/login',[LoginController::class, 'login']);
 });
 
 
