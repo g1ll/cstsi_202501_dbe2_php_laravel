@@ -9,6 +9,7 @@ use App\Http\Resources\ProdutoCollectionResource;
 use App\Http\Resources\ProdutoResource;
 use App\Http\Resources\ProdutoStoredResource;
 use App\Models\Produto;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -58,15 +59,20 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produto $produto)
+    public function destroy(Request $request, Produto $produto)
     {
+        $statusHttpError = 500;
         try {
+            if(!$request->user()->tokenCan('is-admin')){
+                throw new Exception("Não permitido!!");
+                $statusHttpError = 403;
+            }
             $produto->delete();
             return new ProdutoResource($produto)->additional([
                     'message' => 'Produto deletado com sucesso!'
                 ]);
         } catch (\Exception $e) {
-            return $this->errorHandler('Erro ao atualizar produto',$e);
+            return $this->errorHandler('Erro ao deletar produto',$e,$statusHttpError);
         }
     }
 }
