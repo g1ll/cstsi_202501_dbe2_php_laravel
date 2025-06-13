@@ -15,7 +15,7 @@ class ProdutoCollectionResource extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
-        JsonResource::withoutWrapping();//remove o campo data, array json
+        // JsonResource::withoutWrapping();//remove o campo data, array json {data:[]}
         return parent::toArray($request);
     }
 }
