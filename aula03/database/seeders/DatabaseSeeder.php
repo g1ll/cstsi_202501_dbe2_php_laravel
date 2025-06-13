@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Fornecedor;
 use App\Models\Produto;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,12 +17,14 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(20)->create();
 
-        Produto::factory(20)->create();
-
         $this->call([
             AdminSeeder::class,
-            RegiaoSeeder::class
+            RegiaoSeeder::class,
+            EstadoSeeder::class
         ]);
 
+        Fornecedor::factory(10)
+            ->hasProdutos(10)
+            ->create();
     }
 }

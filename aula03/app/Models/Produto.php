@@ -14,6 +14,11 @@ class Produto extends Model
         "descricao",
         "preco",
         "qtd_estoque",
-        "importado"
+        "importado",
+        "fornecedor_id"
     ];
+
+    public function fornecedor(){
+        return $this->belongsTo(Fornecedor::class);
+    }
 }
