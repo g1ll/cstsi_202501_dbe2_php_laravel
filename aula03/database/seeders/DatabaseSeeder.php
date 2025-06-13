@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             EstadoSeeder::class
         ]);
 
+        // Fornecedor::factory(10)->create();
+        // Produto::factory(10)->create();
+
         Fornecedor::factory(10)
             ->hasProdutos(10)
             ->create();
