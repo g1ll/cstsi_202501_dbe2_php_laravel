@@ -27,7 +27,15 @@ class DatabaseSeeder extends Seeder
         // Produto::factory(10)->create();
 
         Fornecedor::factory(10)
-            ->hasProdutos(10)
+            ->has(Produto::factory(10))
             ->create();
-    }
+
+        // new PromocaoSeeder()->run();
+        // new ProdutoPromocaoSeeder()->run();
+
+        $this->call([
+            PromocaoSeeder::class,
+            ProdutoPromocaoSeeder::class
+        ]);
+      }
 }
