@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // $middleware->api(prepend:ForceJsonResponse::class);
         $middleware->api(append:ForceJsonResponse::class);
         // dd($middleware->getMiddlewareGroups());
-        $middleware->statefulApi();
+        $middleware->statefulApi();//Uso de Cookies no Sanctum
 
         $middleware->alias([
             'ability' => CheckForAnyAbility::class,
