@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "GitHub Dark High Contrast",
+    "workbench.colorCustomizations": { 
+        "statusBar.background" : "#de0000",
+        "statusBar.foreground" : "#c3c3c3",
+    }
+}
