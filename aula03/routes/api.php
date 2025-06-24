@@ -7,13 +7,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 // Route::get('produtos',[ProdutoController::class,'index']);
 // Route::get('produtos/{produto}',[ProdutoController::class,'show']);
 
+
 Route::prefix('v1')->group(function () {
 
-    Route::get('/user', function (Request $request) {
-    return $request->user();
+   Route::get('/user', function (Request $request) {
+    // return $request->user();
+    $user =  $request->user();
+    $user->currentAccessToken()->delete();
+    $token =$user->createToken($user->email)->plainTextToken;
+    return compact(['user','token']);
     })->middleware("auth:sanctum");
 
     Route::apiResource('produtos', ProdutoController::class)
