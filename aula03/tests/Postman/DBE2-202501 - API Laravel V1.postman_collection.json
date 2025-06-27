@@ -3,11 +3,12 @@
 		"_postman_id": "ebc6dfa9-37ce-4239-9f7d-7f0c6edeede0",
 		"name": "DBE2-202501 - API Laravel V1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37639345"
+		"_exporter_id": "37639345",
+		"_collection_link": "https://lively-satellite-2572.postman.co/workspace/DBE2_202501~1f1e16ac-54c5-4775-8da8-e9d5eb040935/collection/37639345-ebc6dfa9-37ce-4239-9f7d-7f0c6edeede0?action=share&source=collection_link&creator=37639345"
 	},
 	"item": [
 		{
-			"name": "Produtos",
+			"name": "produtos",
 			"item": [
 				{
 					"name": "INDEX",
@@ -15,12 +16,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80803/api/v1/produtos",
+							"raw": "http://{{BASE_URL}}/api/v1/produtos",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "80803",
 							"path": [
 								"api",
 								"v1",
@@ -43,17 +43,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8083/api/v1/produtos/138",
+							"raw": "http://{{BASE_URL}}/api/v1/produtos/101",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "8083",
 							"path": [
 								"api",
 								"v1",
 								"produtos",
-								"138"
+								"101"
 							]
 						}
 					},
@@ -62,6 +61,16 @@
 				{
 					"name": "DELETE",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -72,17 +81,16 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8083/api/v1/produtos/129",
+							"raw": "http://{{BASE_URL}}/api/v1/produtos/1",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "8083",
 							"path": [
 								"api",
 								"v1",
 								"produtos",
-								"129"
+								"1"
 							]
 						}
 					},
@@ -92,10 +100,42 @@
 					"name": "STORE",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Access-Control-Allow-Credentials",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "referer",
+								"value": "http://localhost:8000/api/v1/produtos",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{XSRF-TOKEN}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
@@ -128,12 +168,96 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8083/api/v1/produtos",
+							"raw": "http://{{BASE_URL}}/api/v1/produtos",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "STORE Upload",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							},
+							{
+								"key": "Access-Control-Allow-Credentials",
+								"value": "true",
+								"type": "text"
+							},
+							{
+								"key": "referer",
+								"value": "http://localhost:8083/",
+								"type": "text"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{XSRF-TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Placa de Vídeo  RTX5060 TI",
+									"type": "text"
+								},
+								{
+									"key": "descricao",
+									"value": "Placa de Vídeo RTX NVIDIA  TI 8GB",
+									"type": "text"
+								},
+								{
+									"key": "qtd_estoque",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "preco",
+									"value": "6500.99",
+									"type": "text"
+								},
+								{
+									"key": "importado",
+									"value": "\"on\"",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/home/g1ll/Pictures/placa-de-video-gigabyte-nvidia-geforce-rtx-4060-eagle-oc-8gb-gddr6-dlss-ray-tracing-gv-n4060eagle-oc-8gd_172916.webp"
+								},
+								{
+									"key": "fornecedor_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/api/v1/produtos",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
 							"path": [
 								"api",
 								"v1",
@@ -147,37 +271,56 @@
 					"name": "UPDATE",
 					"request": {
 						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "Teste",
-									"value": "asdfasdf",
+									"key": "token",
+									"value": "{{BEARER_TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "preco",
+									"value": " 40500.99",
 									"type": "text"
 								},
 								{
-									"key": "_method",
-									"value": "put",
+									"key": "importado",
+									"value": " 1",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8083/api/v1/produtos/138",
+							"raw": "http://localhost:8000/api/v1/produtos/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8083",
+							"port": "8000",
 							"path": [
 								"api",
 								"v1",
 								"produtos",
-								"138"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -192,7 +335,14 @@
 					"name": "INDEX",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [
@@ -273,17 +423,17 @@
 							},
 							{
 								"key": "referer",
-								"value": "http://localhost:8083/api/user",
+								"value": "http://localhost:8000/api/user",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8083/api/user",
+							"raw": "http://localhost:8000/api/user",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8083",
+							"port": "8000",
 							"path": [
 								"api",
 								"user"
@@ -360,7 +510,7 @@
 			"name": "auth",
 			"item": [
 				{
-					"name": "SPAs",
+					"name": "cookies",
 					"item": [
 						{
 							"name": "SANCTUM-CSRF",
@@ -383,12 +533,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8083/sanctum/csrf-cookie",
+									"raw": "http://{{BASE_URL}}/sanctum/csrf-cookie",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "8083",
 									"path": [
 										"sanctum",
 										"csrf-cookie"
@@ -438,35 +587,22 @@
 									"urlencoded": [
 										{
 											"key": "email",
-											"value": "admin@dev.test",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "password",
-											"value": "adminadmin",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "email",
-											"value": "velledagonzales@gmail.com",
+											"value": "admin@test.dev",
 											"type": "text"
 										},
 										{
 											"key": "password",
-											"value": "12345678",
+											"value": "adminadmin",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost:8083/login",
+									"raw": "http://{{BASE_URL}}/login",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "8083",
 									"path": [
 										"login"
 									]
@@ -577,7 +713,13 @@
 									"type": "noauth"
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{XSRF-TOKEN}}",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "urlencoded",
 									"urlencoded": [
@@ -596,12 +738,11 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost:8083/logout",
+									"raw": "http://{{BASE_URL}}/logout",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "8083",
 									"path": [
 										"logout"
 									]
@@ -612,7 +753,7 @@
 					]
 				},
 				{
-					"name": "TOKENS",
+					"name": "bearer",
 					"item": [
 						{
 							"name": "LOGIN",
@@ -623,14 +764,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "1|kchbjmtVsZS3b6Nni0z1B7ocNWw8Ros4cz4KtPeBdd95d451",
-											"type": "string"
-										}
-									]
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [
@@ -646,7 +780,7 @@
 									"urlencoded": [
 										{
 											"key": "email",
-											"value": "admin@dev.test",
+											"value": "admin@test.dev",
 											"type": "text"
 										},
 										{
@@ -671,18 +805,30 @@
 											"value": "12345678",
 											"type": "text",
 											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "lois95@example.net",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost:8083/api/login",
+									"raw": "http://{{BASE_URL}}/api/v1/login",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "8083",
 									"path": [
 										"api",
+										"v1",
 										"login"
 									]
 								}
@@ -735,35 +881,36 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "USER BEARER",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{BEARER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{BASE_URL}}/api/user",
+									"protocol": "http",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "consultas",
-			"item": [
-				{
-					"name": "localhost:8083/api/produtos/query/regiao/Sul",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8083/api/produtos/query/regiao/Norte",
-							"host": [
-								"localhost"
-							],
-							"port": "8083",
-							"path": [
-								"api",
-								"produtos",
-								"query",
-								"regiao",
-								"Norte"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1016,6 +1163,33 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "consultas",
+					"item": [
+						{
+							"name": "localhost:8083/api/produtos/query/regiao/Sul",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8083/api/produtos/query/regiao/Norte",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"api",
+										"produtos",
+										"query",
+										"regiao",
+										"Norte"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
@@ -1040,6 +1214,28 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "XSRF-TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "BEARER_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "BEARER_TOKEN_ADMIN",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
