@@ -8,6 +8,7 @@ use App\Http\Requests\ProdutoUpdateRequest;
 use App\Http\Resources\ProdutoCollectionResource;
 use App\Http\Resources\ProdutoResource;
 use App\Http\Resources\ProdutoStoredResource;
+use App\Models\Media;
 use App\Models\Produto;
 use Exception;
 use Illuminate\Http\Request;
@@ -29,7 +30,20 @@ class ProdutoController extends Controller
     public function store(ProdutoStoreRequest $request)
     {
         try {
-            return new ProdutoStoredResource(Produto::create($request->validated()));
+            $newProduto = $request->validated();
+            if($request->file('imagem')){
+                $fileName = $request->file('imagem')->hashName();
+                if(!$request->file('imagem')->store('produtos','public'))
+                    throw new Exception('Erro ao salvar imagem do produto!!');
+
+                $newModelProduto=Produto::create($newProduto);
+                $newModelProduto->media()->create([
+                    'source'=>$fileName
+                ]);
+            }else{
+                $newModelProduto=Produto::create($newProduto);
+            }
+            return new ProdutoStoredResource($newModelProduto->load('media','fornecedor'));
         } catch (\Exception $e) {
             return $this->errorHandler('Erro ao criar produto',$e);
         }
