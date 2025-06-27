@@ -26,8 +26,20 @@ class DatabaseSeeder extends Seeder
         // Fornecedor::factory(10)->create();
         // Produto::factory(10)->create();
 
+        // Fornecedor::factory(10)
+        //     ->has(Produto::factory(10))
+        //     ->create();
+
+        // Fornecedor::factory(10)
+        //     ->hasProdutos(10)
+        //     ->hasMedia(1)
+        //     ->create();
+
         Fornecedor::factory(10)
-            ->has(Produto::factory(10))
+            ->has(Produto::factory(10)
+                    ->hasMedia(2)
+            )
+            ->hasMedia(1)
             ->create();
 
         // new PromocaoSeeder()->run();
@@ -35,7 +47,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PromocaoSeeder::class,
-            ProdutoPromocaoSeeder::class
+            ProdutoPromocaoSeeder::class,
+            MediaSeeder::class
         ]);
       }
 }
