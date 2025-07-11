@@ -753,10 +753,116 @@
 					]
 				},
 				{
-					"name": "bearer",
+					"name": "tokens",
 					"item": [
 						{
 							"name": "LOGIN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const {token} = pm.response.json();",
+											"token && pm.collectionVariables.set(\"TOKEN\", token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/html",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@test.dev",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "adminadmin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "gillvelleda@mail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "velledagonzales@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "lois95@example.net",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{BASE_URL}}/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN ADMIN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const {token} = pm.response.json();",
+											"token && pm.collectionVariables.set(\"TOKEN_ADMIN\", token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {
 									"accept": true
