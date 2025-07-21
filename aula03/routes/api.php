@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\FornecedorController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\ProdutoController;
 use App\Http\Controllers\Api\UserController;
@@ -31,6 +32,10 @@ Route::prefix('v1')->group(function () {
 
     Route::apiResource('produtos', ProdutoController::class)
         ->only('index','show');
+
+    Route::apiResource('fornecedores', FornecedorController::class)
+        ->parameter('fornecedores', 'fornecedor')
+        ->middleware("auth:sanctum");
 
     // Route::get('users',function(){
     //     return User::all();

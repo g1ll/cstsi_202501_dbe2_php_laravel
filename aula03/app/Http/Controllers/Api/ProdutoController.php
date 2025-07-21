@@ -21,7 +21,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return new ProdutoCollectionResource(Produto::all());
+        return new ProdutoCollectionResource(Produto::all()->load('media'));
     }
 
     /**
